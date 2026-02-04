@@ -1,7 +1,0 @@
-sources:
-  - name: jaffle_shop
-    database: workspace
-    schema: default_raw
-    tables:
-      - name: jaffle_shop_customers
-      - name: jaffle_shop_orders

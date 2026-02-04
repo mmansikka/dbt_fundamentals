@@ -1,0 +1,16 @@
+sources:
+  - name: jaffle_shop
+    database: workspace
+    schema: default_raw
+    tables:
+      - name: jaffle_shop_customers
+      - name: jaffle_shop_orders
+        # config:
+        #   freshness:
+        #     warn_after:
+        #       count: 25
+        #       period: day
+        #     error_after:
+        #       count: 10000
+        #       period: day 
+        #   loaded_at_field: _etl_loaded_at

@@ -1,0 +1,25 @@
+models:
+  - name: stg_jaffle_shop__customers
+    description: "Staging models for the jaffle_shop source data."
+    columns:
+      - name: customer_id
+        description: "The unique identifier for each customer."
+        data_tests:
+          - not_null
+          - unique
+      - name: first_name
+        description: "The customer's first name."
+      - name: last_name
+        description: "The customer's last name."
+  
+  - name: stg_jaffle_shop__orders
+    description: "Staging models for the jaffle_shop orders data."
+    columns:
+      - name: order_id
+        description: "The unique identifier for each order."
+      - name: customer_id
+        description: "The unique identifier for the customer who placed the order."
+      - name: order_date
+        description: "The date when the order was placed."
+      - name: status
+        description: "The current status of the order."

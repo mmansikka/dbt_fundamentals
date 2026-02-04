@@ -1,0 +1,47 @@
+-- ➜ dbt run-operation generate_source --args '{"schema_name": "default_raw", "database_name": "workspace"}'
+-- dbt-fusion 2.0.0-preview.104
+--    Loading ~/.dbt/profiles.yml
+--    Loading packages.yml
+-- version: 2
+-- 
+-- sources:
+--   - name: default_raw
+--     tables:
+--       - name: jaffle_shop_customers
+--       - name: jaffle_shop_orders
+--       - name: stripe_payments
+-- 
+-- ================================================== Execution Summary ===================================================
+-- Finished 'run-operation' successfully for target 'dev' [2.7s]
+-- 
+-- dbt_fundamentals on  feature/finish_course [✘!?] 💡 You haven't started tracking time today took 2s 
+
+
+-- ❯ dbt run-operation generate_base_model --args '{"source_name": "jaffle_shop", "table_name": "jaffle_shop_customers"}'
+-- dbt-fusion 2.0.0-preview.104
+--    Loading ~/.dbt/profiles.yml
+--    Loading packages.yml
+-- 
+-- 
+-- with source as (
+-- 
+--     select * from {{ source('jaffle_shop', 'jaffle_shop_customers') }}
+-- 
+-- ),
+-- 
+-- renamed as (
+-- 
+--     select
+--         id,
+--         first_name,
+--         last_name
+-- 
+--     from source
+-- 
+-- )
+-- 
+-- select * from renamed
+-- 
+-- 
+-- ================================================== Execution Summary ===================================================
+-- Finished 'run-operation' successfully for target 'dev' [3.6s]
