@@ -1,0 +1,6 @@
+sources:
+  - name: stripe
+    database: workspace
+    schema: default_raw
+    tables:
+      - name: stripe_payments
