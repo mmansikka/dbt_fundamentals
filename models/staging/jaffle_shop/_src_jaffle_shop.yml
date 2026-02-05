@@ -1,0 +1,28 @@
+sources:
+  - name: jaffle_shop
+    description: "This is the source data for the Jaffle Shop example."
+    database: workspace
+    schema: default_raw
+    tables:
+      - name: jaffle_shop_customers
+        descrition: Raw customers data
+        columns:
+          - name: id
+            description: Primary key
+            tests:
+              - not_null
+              - unique
+      - name: jaffle_shop_orders
+        description: Raw orders data
+        columns:
+          - name: id
+            description: Primary key
+        # config:
+        #   freshness:
+        #     warn_after:
+        #       count: 25
+        #       period: day
+        #     error_after:
+        #       count: 10000
+        #       period: day 
+        #   loaded_at_field: _etl_loaded_at

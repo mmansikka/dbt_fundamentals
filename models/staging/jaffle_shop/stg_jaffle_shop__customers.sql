@@ -1,9 +1,3 @@
-{{
-    config(
-        materialized = 'view'
-    )
-}}
-
 with src as (
     select
         id as customer_id,
