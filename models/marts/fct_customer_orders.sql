@@ -57,10 +57,10 @@ paid_orders as (
 final as (
 
     select
-        paid_orders.*,
-        row_number() over (order by paid_orders.order_id) as transaction_seq,
+        *,
+        row_number() over (order by order_id) as transaction_seq,
         row_number() over (
-            partition by customer_id order by paid_orders.order_id
+            partition by customer_id order by order_id
         ) as customer_sales_seq,
         case
             when (
@@ -69,9 +69,7 @@ final as (
                     order by order_placed_at, order_id
                 ) = 1
             ) then 'new'
-        else 'return' end as nvsr,
-        paid_orders.customer_lifetime_value,
-        paid_orders.first_order_date
+        else 'return' end as nvsr
     from paid_orders
     order by order_id
 )
