@@ -1,0 +1,11 @@
+snapshots:
+  - name: order_snapshot
+    relation: source('jaffle_shop', 'jaffle_shop_orders')
+    config:
+      target_database: workspace
+      target_schema: default_snapshot
+      unique_key: id
+      strategy: check
+      check_cols: ['id', 'user_id', 'order_date', 'status']
+      hard_deletes: ignore
+      dbt_valid_to_current: "to_date('9999-12-31')" # null by default
