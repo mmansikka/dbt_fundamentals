@@ -5,7 +5,7 @@ sources:
     schema: default_raw
     tables:
       - name: jaffle_shop_customers
-        descrition: Raw customers data
+        description: Raw customers data
         columns:
           - name: id
             description: Primary key
