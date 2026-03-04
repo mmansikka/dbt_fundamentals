@@ -1,3 +1,9 @@
+{{
+    config(
+        store_failures='true',
+    )
+}}
+
 with src as (
     select
         order_id,

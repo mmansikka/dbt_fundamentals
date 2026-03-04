@@ -4,3 +4,16 @@ sources:
     schema: default_raw
     tables:
       - name: stripe_payments
+        columns:
+          - name: id
+            description: "The unique identifier for each payment."
+            data_tests:
+              - unique:
+                  config:
+                    error_if: "> 100"
+                    warn_if: "> 10"
+                    where: "paymentmethod = 'success'"
+                    limit: 10
+                    store_failures: true
+
+
