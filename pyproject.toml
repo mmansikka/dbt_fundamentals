@@ -1,0 +1,9 @@
+[project]
+name = "dbt-fundamentals"
+version = "0.1.0"
+description = "Uv config file for installing mcp server"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dbt-mcp==1.9.3",
+]

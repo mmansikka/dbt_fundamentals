@@ -43,6 +43,8 @@ seeds:
 models:
   dbt_fundamentals:
     staging:
+      +meta:
+        +require_tests: {"unique.*|not_null.*": 2} # dbt run-operation required_tests
       +materialized: view
     marts:
       +materialized: table

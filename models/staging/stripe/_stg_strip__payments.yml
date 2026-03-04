@@ -1,0 +1,26 @@
+
+models:
+    - name: stg_stripe__payments
+      description: Staged Stripe payments data
+      columns:
+          - name: payment_id
+            description: Primary key
+            tests:
+                - unique
+                - not_null
+          - name: order_id
+            description: Foreign key to orders
+            tests:
+                - not_null
+          - name: payment_method
+            description: Payment method used
+          - name: status
+            description: Payment status
+          - name: created_at
+            description: Payment creation timestamp
+          - name: amount
+            description: Payment amount in dollars
+            data_tests:
+                - greater_than:
+                    arguments:
+                        value: -1000
