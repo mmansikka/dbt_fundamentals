@@ -1,8 +1,3 @@
-{{
-    config(
-        store_failures='true',
-    )
-}}
 
 with src as (
     select
