@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: Dimension table for customers with cleaned and deduplicated customer data
+    columns:
+      - name: customer_id
+        description: Unique customer identifier
+        data_tests:
+          - unique
+          - not_null
+          - dbt_utils.cardinality_equality:
+              arguments:
+                field: customer_id
+                to: ref('stg_jaffle_shop__customers')
+
+      - name: first_name
+        description: Customer first name
+
+      - name: last_name
+        description: Customer last name
+
+      - name: email
+        description: Customer email address
+
+      - name: created_at
+        description: Timestamp when customer record was created
+
+      - name: updated_at
+        description: Timestamp when customer record was last updated

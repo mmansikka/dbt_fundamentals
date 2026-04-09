@@ -1,0 +1,29 @@
+version: 2
+
+models:
+    - name: fct_orders
+      description: Fact table containing order-level metrics and dimensional keys
+      data_tests:
+        - dbt_utils.expression_is_true:
+            arguments:
+              expression: "amount >= 0"
+      columns:
+          - name: order_id
+            description: Unique identifier for each order
+            data_tests:
+              - unique
+              - not_null
+          - name: customer_id
+            description: Foreign key to customer dimension
+            data_tests:
+              - not_null
+              - relationships:
+                  arguments:
+                    to: ref('stg_jaffle_shop__customers')
+                    field: customer_id
+          - name: order_date
+            description: Date the order was placed
+          - name: amount
+            description: Total order amount
+          - name: status
+            description: Current order status
